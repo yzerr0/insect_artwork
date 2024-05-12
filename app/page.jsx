@@ -8,6 +8,8 @@ import { gsap } from "gsap";
 export default function Home() {
     return (
         <div className="w-screen h-screen bg-orange-950">
+            <h1 className="text-white">Click the earthworm to make it crawl</h1>
+            <h1 className="text-white">Made by Youssef Zerroug</h1>
             <Canvas shadows dpr={[1, 1.5]} camera={{ position: [0, 0, 20], fov: 50, near: 1, far: 40 }}
             gl={{antialias:false}}>
                 <Suspense fallback={null}>
@@ -46,13 +48,13 @@ function CapsuleStack() {
     }
     
     function handleClick() {
-        // random rotation on all axes (radians)
-        gsap.to(groupRef.current.rotation, {
-            x: `+=${gsap.utils.random(0,0.75)}`,
-            y: `+=${gsap.utils.random(0,0.75)}`,
-            duration: 1.3,
-            ease: "elastic.out(1, 0.3)",
-            // yoyo: true,
+        // Move the worm back and forth along the x-axis
+        gsap.to(groupRef.current.position, {
+          x: "+=5", // Move 5 units to the right
+          repeat: 1, // Repeat the animation once
+          yoyo: true, // Return to the original position after reaching 5 units
+          duration: 2,
+          ease: "power1.inOut"
         });
     }
 
