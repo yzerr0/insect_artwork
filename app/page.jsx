@@ -40,7 +40,7 @@ function CapsuleStack() {
         capsules.push(
             <mesh key={i} position={[positionX, 0, 0]} rotation={[0, 0, -Math.PI / 2]}>
                 <capsuleGeometry args={[0.4, 0.6, 4, 8, 1]} />
-                <meshStandardMaterial color={i === 12 ? '#956f64' : color} />
+                <meshStandardMaterial color={i === 11 ? '#956f64' : color} />
             </mesh>
         );
     }
