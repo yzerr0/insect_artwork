@@ -7,8 +7,8 @@ import { gsap } from "gsap";
 
 export default function Home() {
     return (
-        <div className="w-screen h-screen bg-orange-950">
-            <h1 className="text-white">Click the earthworm to make it crawl</h1>
+        <div className="w-screen h-screen bg-green-950">
+            <h1 className="text-white">Click the caterpillar to make it crawl</h1>
             <h1 className="text-white">Made by Youssef Zerroug</h1>
             <Canvas shadows dpr={[1, 1.5]} camera={{ position: [0, 0, 20], fov: 50, near: 1, far: 40 }}
             gl={{antialias:false}}>
@@ -26,7 +26,7 @@ function CapsuleStack() {
     const numCapsules = 15; // Number of capsules to stack
     const capsuleLength = 1.2; // Length of each capsule
     const overlap = 0.2; // Overlap between capsules to make them appear connected
-    const color = '#864c31'; // Color of the capsules
+    const color = '#6dbb2d'; // Color of the capsules
     const groupRef = useRef();
 
     // Calculate the total length of all capsules
@@ -41,8 +41,8 @@ function CapsuleStack() {
         const positionX = i * (capsuleLength - overlap) - centerOffset;
         capsules.push(
             <mesh key={i} position={[positionX, 0, 0]} rotation={[0, 0, -Math.PI / 2]}>
-                <capsuleGeometry args={[0.4, 0.6, 4, 8, 1]} />
-                <meshStandardMaterial color={i === 11 ? '#956f64' : color} />
+                <capsuleGeometry args={[0.625, 0.6, 4, 8, 1]} />
+                <meshStandardMaterial color={color} />
             </mesh>
         );
     }
